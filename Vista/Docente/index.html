@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Docente - Sidebar Menu</title>
+  
+  <!-- CDNs (Bootstrap, Icons, FontAwesome) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar d-flex flex-column">
+    <!-- Encabezado con botón centrado -->
+    <div class="sidebar-header">
+      <button class="toggle-btn" onclick="toggleSidebar()">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+
+    <!-- Opciones del menú -->
+    <div class="menu-options">
+      <!-- Opción actualizada -->
+      <a class="opcion" href="../Grupos/Lista_Grupos.html">
+        <i class="fa-solid fa-users"></i>
+        <span class="text">Lista de grupos</span>
+      </a>
+    </div>
+
+    <!-- Dropdown de usuario -->
+    <div class="user-dropdown">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://via.placeholder.com/32" alt="usuario" width="32" height="32" class="rounded-circle me-2">
+        <strong class="text">mdo</strong>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+        <li><a class="dropdown-item" href="#">Perfil</a></li>
+        <li><a class="dropdown-item" href="#">Configuración</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="../../Index.html">Cerrar sesión</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="content">
+    <h1>Panel de Docente</h1>
+    <p>Bienvenido al sistema de administración. Desde aquí puedes gestionar anotaciones y grupos.</p>
+    
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title">Funcionalidades disponibles</h5>
+        <ul class="card-text">
+          <li>Consulta y gestión de lista de grupos</li>
+          <li>Seguimiento de estudiantes</li>
+        </ul>
+      </div>
+    </div>
+  </div>  
+  <!-- Script Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <Script src="JS/Script.js"></Script>
+</body>
+</html>

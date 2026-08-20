@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bg-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+                    url('Vista/Img/fondo.jpg'); /* Verifica ruta exacta */
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+
+  pointer-events: none; /* evita bloquear clics */
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: auto; /* aquí sí habilitamos clics */
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: -10px; /* separación logo/botones */
+}
+
+.logo {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+}
+.login-btn {
+  padding: 16px 50px;
+  background: linear-gradient(135deg, #0d6efd, #0d6efd);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #224abe, #4e73df);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    max-width: 280px;
+  }
+
+  .login-btn {
+    padding: 14px 40px;
+    font-size: 18px;
+  }
+}

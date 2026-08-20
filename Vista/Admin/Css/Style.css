@@ -1,0 +1,171 @@
+    body {
+      display: flex;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      background: linear-gradient(to bottom, #800020, #600010);
+      transition: width 0.3s ease;
+      padding: 0;
+      box-shadow: 3px 0 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Sidebar colapsado */
+    .sidebar.collapsed {
+      width: 80px;
+    }
+
+    /* Encabezado del sidebar con botón centrado */
+    .sidebar-header {
+      padding: 20px 15px 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Botón de toggle centrado */
+    .toggle-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    /* Contenedor de opciones del menú */
+    .menu-options {
+      padding: 15px 10px;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 12px 15px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      font-size: 1rem;
+      margin-bottom: 5px;
+      position: relative;
+    }
+
+    .sidebar a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateX(5px);
+    }
+
+    .sidebar i {
+      font-size: 1.2rem;
+      min-width: 25px;
+      text-align: center;
+    }
+
+    /* Ocultar texto cuando está colapsado */
+    .sidebar.collapsed .text {
+      display: none;
+    }
+
+    /* Dropdown de usuario */
+    .user-dropdown {
+      padding: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    /* Contenido principal */
+    .content {
+      flex: 1;
+      padding: 25px;
+      background-color: #f5f5f5;
+    }
+
+    .content h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Efecto de transición para el texto */
+    .text {
+      transition: opacity 0.3s ease;
+    }
+
+    /* Estilos para la barra de desplazamiento */
+    .menu-options::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .menu-options::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+    }
+
+    /* Submenú desplegable */
+    .submenu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      margin-left: 20px;
+      padding-left: 10px;
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .submenu.show {
+      max-height: 500px;
+    }
+
+    .submenu a {
+      font-size: 0.9rem;
+      padding: 10px 15px;
+      margin-bottom: 2px;
+    }
+
+    .has-submenu::after {
+      content: '\f107';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .has-submenu.active::after {
+      transform: rotate(180deg);
+    }
+
+    /* Cuando el sidebar está colapsado */
+    .sidebar.collapsed .submenu {
+      display: none;
+    }
+
+    .sidebar.collapsed .has-submenu::after {
+      display: none;
+    }

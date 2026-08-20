@@ -1,0 +1,124 @@
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; padding: 20px; background: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+        .formato {
+            width: 100%; max-width: 1200px; margin: auto;
+            background: white; border: 2px solid black; padding: 15px;
+            position: relative;
+        }
+
+        /* BOTONES GENERALES (Editar / Guardar) */
+        .acciones-compartidas {
+            display: flex; gap: 10px; margin-bottom: 20px; align-items: center;
+        }
+        button {
+            padding: 8px 16px; border: none; background: black;
+            color: white; cursor: pointer; font-size: 14px; border-radius: 4px;
+            display: inline-flex; align-items: center; gap: 6px;
+        }
+        button i { font-size: 1.1em; }
+        button:hover { background: #333; }
+        .modo-aviso {
+            display: none; margin-left: 15px; font-weight: bold; color: #0066cc;
+        }
+
+        /* FLECHA DE CAMBIO */
+        .contenedor-flecha {
+            display: flex; justify-content: flex-end; margin-bottom: 10px;
+        }
+        .btn-cambio {
+            background: #0066cc; border: none; color: white;
+            font-size: 18px; padding: 8px 12px; border-radius: 50%;
+            cursor: pointer; transition: transform 0.3s;
+            display: flex; align-items: center; justify-content: center;
+            width: 48px; height: 48px;
+        }
+        .btn-cambio:hover { background: #004c99; }
+        .btn-cambio.rotar { transform: rotate(180deg); }
+
+        /* CONTENEDOR DE LAS DOS VISTAS */
+        .vistas { overflow: hidden; }
+        .vista {
+            display: none;
+            animation: deslizar 0.3s ease;
+        }
+        .vista.activa { display: block; }
+        @keyframes deslizar {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ESTILOS GENERALES PARA AMBAS VISTAS */
+        .encabezado { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        .encabezado td { border: 1px solid black; padding: 10px; }
+        .logo { width: 150px; text-align: center; vertical-align: middle; }
+        .logo img {
+            width: 100px; height: 100px; object-fit: contain;
+            border: 1px solid black;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        td, th { border: 1px solid black; padding: 8px; vertical-align: top; }
+        th { background: #e5e5e5; }
+        input, textarea, select {
+            width: 100%; border: none; outline: none;
+            background: transparent; font-size: 14px;
+        }
+        textarea { resize: vertical; min-height: 120px; }
+
+        /* SEGUIMIENTO */
+        .periodos-fila {
+            display: flex; gap: 15px; margin-top: 20px;
+        }
+        .periodo { flex: 1; min-width: 0; }
+        .titulo-periodo { font-weight: bold; text-align: center; margin-bottom: 10px; }
+        .periodo textarea { min-height: 220px; }
+        .firmas { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+        .caja-firma { border: 1px solid black; padding: 10px; min-height: 90px; }
+        .caja-firma label { display: block; margin-bottom: 8px; font-weight: bold; }
+        .grado-grupo { display: flex; gap: 8px; align-items: center; }
+        .grado-grupo input { width: 60px; text-align: center; }
+
+        /* OBSERVACIÓN */
+        .titulo-principal {
+            text-align: center; font-size: 22px; font-weight: bold;
+            margin-bottom: 20px; text-transform: uppercase;
+        }
+        .barra-observaciones {
+            display: flex; gap: 10px; align-items: center; margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .barra-observaciones select {
+            width: auto; min-width: 200px; padding: 6px;
+            border: 1px solid black; font-size: 14px;
+        }
+        .tipo-botones {
+            display: flex; gap: 8px; align-items: center; justify-content: center;
+        }
+        .tipo-botones button {
+            padding: 6px 12px; font-size: 13px; background: white;
+            color: black; border: 1px solid black;
+        }
+        .tipo-botones button.activo { background: black; color: white; }
+        .situacion-select { text-align: center; }
+        .situacion-select select { width: 120px; padding: 4px; border: 1px solid #ccc; }
+        .seccion-texto { margin-bottom: 15px; }
+        .seccion-texto .titulo { font-weight: bold; margin-bottom: 4px; font-size: 14px; }
+        .seccion-texto textarea { border: 1px solid black; padding: 5px; min-height: 120px; }
+        .firmas-contenedor {
+            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px; margin-top: 25px;
+        }
+        .cajon-firma {
+            border: 1px solid black; padding: 15px; text-align: center;
+        }
+        .cajon-firma .titulo-firma { font-weight: bold; font-size: 14px; margin-bottom: 15px; }
+        .cajon-firma input { text-align: center; width: 80%; border: none; border-bottom: 1px solid #999; outline: none; padding: 4px; }
+
+        /* Modo edición */
+        body.editando input:not(:disabled),
+        body.editando textarea:not(:disabled),
+        body.editando select:not(:disabled) {
+            border: 1px dashed #0066cc;
+            background: #f0f8ff;
+        }

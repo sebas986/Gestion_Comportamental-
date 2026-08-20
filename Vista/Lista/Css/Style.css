@@ -1,0 +1,248 @@
+        /* ===== ESTILOS GENERALES ===== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        /* ===== CONTENEDOR PRINCIPAL ===== */
+        .main-container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        /* ===== BOTÓN VOLVER ===== */
+        .btn-volver {
+            background: #800020;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(128, 0, 32, 0.3);
+            cursor: pointer;
+        }
+
+        .btn-volver:hover {
+            background: #4a0013;
+            color: white;
+            transform: translateX(-3px);
+            box-shadow: 0 4px 16px rgba(128, 0, 32, 0.4);
+        }
+
+        .btn-volver i {
+            font-size: 1.8rem;
+        }
+
+        /* ===== TARJETA ===== */
+        .card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: #800020;
+            color: white;
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+            border: none;
+        }
+
+        .card-header i {
+            margin-right: 10px;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        /* ===== FILTROS CON SELECTS ===== */
+        .filtros {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .filtro-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filtro-item label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .filtro-item select {
+            width: 100%;
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            border: 1.5px solid #e5e7eb;
+            background: white;
+            font-size: 0.95rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 12px;
+            cursor: pointer;
+        }
+
+        .filtro-item select:focus {
+            outline: none;
+            border-color: #800020;
+            box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.1);
+        }
+
+        .filtro-item select:disabled {
+            background-color: #f1f3f5;
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* ===== TABLA DE ESTUDIANTES ===== */
+        .tabla-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .tabla-estudiantes {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .tabla-estudiantes th {
+            background: #800020;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .tabla-estudiantes td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: middle;
+        }
+
+        .tabla-estudiantes tr:hover td {
+            background: #fff5f5;
+        }
+
+        .tabla-estudiantes .empty-row td {
+            text-align: center;
+            color: #9ca3af;
+            padding: 2rem;
+        }
+
+        .accion-links {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .accion-links a {
+            text-decoration: none;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.8rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .link-observacion {
+            background: #10b981;
+            color: white;
+        }
+
+        .link-observacion:hover {
+            background: #059669;
+            color: white;
+        }
+
+        .link-anotaciones {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .link-anotaciones:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        .contador {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .contador i {
+            margin-right: 6px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .filtros {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .filtro-item {
+                min-width: 100%;
+            }
+
+            .tabla-estudiantes th,
+            .tabla-estudiantes td {
+                padding: 8px 10px;
+                font-size: 12px;
+            }
+
+            .btn-volver {
+                width: 42px;
+                height: 42px;
+                font-size: 1.2rem;
+            }
+
+            .btn-volver i {
+                font-size: 1.4rem;
+            }
+
+            .accion-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }

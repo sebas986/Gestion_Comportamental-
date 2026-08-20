@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento y Observación</title>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="JS/script.js"></script>
+</head>
+<body>
+<div class="formato">
+
+    <!-- BOTONES GENERALES (Editar / Guardar / Volver al inicio) -->
+    <div class="acciones-compartidas">
+        <button onclick="editarTodo()"><i class="bi bi-pencil"></i> Editar</button>
+        <button onclick="guardarTodo()"><i class="bi bi-save"></i> Guardar</button>
+        <button onclick="volverAlInicio()" class="btn-volver"><i class="bi bi-house-door"></i> Volver al inicio</button>
+        <span class="modo-aviso" id="avisoEdicion">(Modo edición activado)</span>
+    </div>
+
+    <!-- FLECHA PARA ALTERNAR VISTAS -->
+    <div class="contenedor-flecha">
+        <button class="btn-cambio" id="btnToggle" onclick="alternarVista()" title="Cambiar a Observación">
+            <i class="bi bi-arrow-left-right"></i>
+        </button>
+    </div>
+
+    <!-- CONTENEDOR DE LAS DOS VISTAS -->
+    <div class="vistas">
+        <!-- VISTA 1: SEGUIMIENTO DEL ESTUDIANTE -->
+        <div class="vista activa" id="vistaSeguimiento">
+            <table class="encabezado">
+                <tr>
+                    <td class="logo"><img src="../../Img/LogoMc.png" alt="Logo Institución"></td>
+                    <td style="text-align:center;">
+                        <h2>INSTITUCIÓN EDUCATIVA</h2>
+                        <h2>MARÍA DE LOS ÁNGELES CANO MÁRQUEZ</h2>
+                        <hr>
+                        <h3>SEGUIMIENTO DEL ESTUDIANTE</h3>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr><th colspan="4">DATOS DE IDENTIFICACIÓN DEL ESTUDIANTE</th></tr>
+                <tr>
+                    <td>Nombre completo</td>
+                    <td><input type="text" id="nombre" disabled></td>
+                    <td>Grado / Grupo</td>
+                    <td>
+                        <div class="grado-grupo">
+                            <input type="number" id="grado" min="1" max="11" placeholder="Grado" disabled>
+                            <input type="number" id="grupo" min="1" max="5" placeholder="Grupo" disabled>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fecha de nacimiento</td>
+                    <td><input type="text" id="nacimiento" disabled></td>
+                    <td>Documento</td>
+                    <td><input type="text" id="documento" disabled></td>
+                </tr>
+                <tr>
+                    <td>Nombre del padre</td>
+                    <td><input type="text" id="padre" disabled></td>
+                    <td>Teléfono</td>
+                    <td><input type="text" id="telpadre" disabled></td>
+                </tr>
+                <tr>
+                    <td>Nombre de la madre</td>
+                    <td><input type="text" id="madre" disabled></td>
+                    <td>Teléfono</td>
+                    <td><input type="text" id="telmadre" disabled></td>
+                </tr>
+            </table>
+            <div class="periodos-fila">
+                <div class="periodo" id="periodo1">
+                    <table>
+                        <tr><th>ASPECTOS ACADÉMICOS Y COMPORTAMENTALES RELEVANTES</th></tr>
+                        <tr><td>
+                            <div class="titulo-periodo">PRIMER PERIODO</div>
+                            <textarea id="obs1" disabled></textarea>
+                            <div class="firmas">
+                                <div class="caja-firma"><label>Firma del padre</label><input type="text" id="firma1p" placeholder="Nombre" disabled></div>
+                                <div class="caja-firma"><label>Firma estudiante</label><input type="text" id="firma1e" placeholder="Nombre" disabled></div>
+                            </div>
+                        </td></tr>
+                    </table>
+                </div>
+                <div class="periodo" id="periodo2">
+                    <table>
+                        <tr><th>ASPECTOS ACADÉMICOS Y COMPORTAMENTALES RELEVANTES</th></tr>
+                        <tr><td>
+                            <div class="titulo-periodo">SEGUNDO PERIODO</div>
+                            <textarea id="obs2" disabled></textarea>
+                            <div class="firmas">
+                                <div class="caja-firma"><label>Firma del padre</label><input type="text" id="firma2p" placeholder="Nombre" disabled></div>
+                                <div class="caja-firma"><label>Firma estudiante</label><input type="text" id="firma2e" placeholder="Nombre" disabled></div>
+                            </div>
+                        </td></tr>
+                    </table>
+                </div>
+                <div class="periodo" id="periodo3">
+                    <table>
+                        <tr><th>ASPECTOS ACADÉMICOS Y COMPORTAMENTALES RELEVANTES</th></tr>
+                        <tr><td>
+                            <div class="titulo-periodo">TERCER PERIODO</div>
+                            <textarea id="obs3" disabled></textarea>
+                            <div class="firmas">
+                                <div class="caja-firma"><label>Firma del padre</label><input type="text" id="firma3p" placeholder="Nombre" disabled></div>
+                                <div class="caja-firma"><label>Firma estudiante</label><input type="text" id="firma3e" placeholder="Nombre" disabled></div>
+                            </div>
+                        </td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISTA 2: FORMATO OBSERVADOR (CON SELECTOR DE SESIONES) -->
+        <div class="vista" id="vistaObservacion">
+            <div class="titulo-principal">Observación</div>
+            
+            <!-- Selector + botón de nueva observación -->
+            <div class="barra-observaciones">
+                <select id="selectorObservaciones" onchange="cambiarObservacion()">
+                    <option value="">-- Sin observaciones --</option>
+                </select>
+                <button type="button" onclick="nuevaObservacion()">
+                    <i class="bi bi-plus-circle"></i> Nueva observación
+                </button>
+            </div>
+
+            <!-- Formulario de la observación actual -->
+            <table>
+                <tr><th style="width:120px;">Fecha</th><th style="width:200px;">Tipo</th><th>Situación Tipo</th></tr>
+                <tr>
+                    <td style="text-align:center;"><input type="date" id="fechaObs" disabled></td>
+                    <td>
+                        <div class="tipo-botones">
+                            <button id="btnReconocimiento" class="activo" onclick="seleccionarTipo('reconocimiento')">Reconocimiento</button>
+                            <button id="btnObservacion" onclick="seleccionarTipo('observacion')">Observación</button>
+                            <input type="hidden" id="tipoSeleccionado" value="reconocimiento" disabled>
+                        </div>
+                    </td>
+                    <td class="situacion-select">
+                        <select id="situacionTipo" disabled>
+                            <option value="">Seleccionar...</option>
+                            <option value="I">Tipo I</option>
+                            <option value="II">Tipo II</option>
+                            <option value="III">Tipo III</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="seccion-texto">
+                <div class="titulo">Descripción del hecho:</div>
+                <textarea id="descHecho" disabled></textarea>
+            </div>
+            <div class="seccion-texto">
+                <div class="titulo">Descargos:</div>
+                <textarea id="descargos" disabled></textarea>
+            </div>
+            <div class="seccion-texto">
+                <div class="titulo">Acciones pedagógicas y/o compromisos:</div>
+                <textarea id="acciones" disabled></textarea>
+            </div>
+            <div class="firmas-contenedor">
+                <div class="cajon-firma">
+                    <div class="titulo-firma">Firma del Estudiante</div>
+                    <input type="text" id="firmaEstudianteObs" placeholder="Nombre" disabled>
+                </div>
+                <div class="cajon-firma">
+                    <div class="titulo-firma">Firma del Docente / Testigo</div>
+                    <input type="text" id="firmaDocenteObs" placeholder="Nombre" disabled>
+                </div>
+                <div class="cajon-firma">
+                    <div class="titulo-firma">Firma del Acudiente</div>
+                    <input type="text" id="firmaAcudienteObs" placeholder="Nombre" disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

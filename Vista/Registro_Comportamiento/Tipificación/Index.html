@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Tipificaciones</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+  <div class="main-container">
+
+    </a>   <!-- ===== BOTÓN VOLVER (SOLO FLECHA) - CORREGIDO ===== -->
+    <a href="../../Admin/Index.html" class="btn-volver">
+      <i class="bi bi-arrow-left"></i>
+    </a>
+    
+    <!-- ===== TARJETA PRINCIPAL ===== -->
+    <div class="card">
+      <div class="card-header">
+        <i class="bi bi-journal-bookmark-fill"></i> Manual de Convivencia - Tipificaciones por Tipo
+      </div>
+      <div class="card-body">
+        
+        <!-- Pestañas -->
+        <ul class="nav nav-tabs" id="tipoTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tipo1-tab" data-bs-toggle="tab" data-bs-target="#tipo1" type="button" role="tab">
+              <i class="bi bi-1-circle-fill me-1"></i> Tipo 1 (Leves)
+              <span class="badge-count" id="countTipo1">0</span>
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tipo2-tab" data-bs-toggle="tab" data-bs-target="#tipo2" type="button" role="tab">
+              <i class="bi bi-2-circle-fill me-1"></i> Tipo 2 (Graves)
+              <span class="badge-count" id="countTipo2">0</span>
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tipo3-tab" data-bs-toggle="tab" data-bs-target="#tipo3" type="button" role="tab">
+              <i class="bi bi-3-circle-fill me-1"></i> Tipo 3 (Gravísimas)
+              <span class="badge-count" id="countTipo3">0</span>
+            </button>
+          </li>
+        </ul>
+
+        <!-- Contenido con SCROLL -->
+        <div class="tab-content" id="tipoTabContent">
+          <!-- Tipo 1 -->
+          <div class="tab-pane fade show active" id="tipo1" role="tabpanel">
+            <div class="d-flex justify-content-end mb-3">
+              <button class="btn btn-agregar" onclick="abrirModalNuevaTipificacion(1)">
+                <i class="bi bi-plus-circle me-1"></i> Agregar falta Tipo 1
+              </button>
+            </div>
+            <div class="table-wrapper">
+              <table class="table table-tipo table-hover">
+                <thead>
+                  <tr>
+                    <th style="width: 60px">#</th>
+                    <th style="width: 100px">Código</th>
+                    <th>Descripción de la falta</th>
+                    <th style="width: 100px" class="text-center">Acción</th>
+                  </tr>
+                </thead>
+                <tbody id="tablaTipo1">
+                  <tr><td colspan="4" class="empty-row">Cargando...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tipo 2 -->
+          <div class="tab-pane fade" id="tipo2" role="tabpanel">
+            <div class="d-flex justify-content-end mb-3">
+              <button class="btn btn-agregar" onclick="abrirModalNuevaTipificacion(2)">
+                <i class="bi bi-plus-circle me-1"></i> Agregar falta Tipo 2
+              </button>
+            </div>
+            <div class="table-wrapper">
+              <table class="table table-tipo table-hover">
+                <thead>
+                  <tr>
+                    <th style="width: 60px">#</th>
+                    <th style="width: 100px">Código</th>
+                    <th>Descripción de la falta</th>
+                    <th style="width: 100px" class="text-center">Acción</th>
+                  </tr>
+                </thead>
+                <tbody id="tablaTipo2">
+                  <tr><td colspan="4" class="empty-row">Cargando...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tipo 3 -->
+          <div class="tab-pane fade" id="tipo3" role="tabpanel">
+            <div class="d-flex justify-content-end mb-3">
+              <button class="btn btn-agregar" onclick="abrirModalNuevaTipificacion(3)">
+                <i class="bi bi-plus-circle me-1"></i> Agregar falta Tipo 3
+              </button>
+            </div>
+            <div class="table-wrapper">
+              <table class="table table-tipo table-hover">
+                <thead>
+                  <tr>
+                    <th style="width: 60px">#</th>
+                    <th style="width: 100px">Código</th>
+                    <th>Descripción de la falta</th>
+                    <th style="width: 100px" class="text-center">Acción</th>
+                  </tr>
+                </thead>
+                <tbody id="tablaTipo3">
+                  <tr><td colspan="4" class="empty-row">Cargando...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODAL ===== -->
+  <div id="modalNuevaTipificacion" class="modal-custom">
+    <div class="modal-content-custom">
+      <div class="modal-header-custom">
+        <i class="bi bi-file-earmark-plus me-2"></i> <span id="modalTitulo">Agregar Nueva Tipificación</span>
+      </div>
+      <div class="modal-body-custom">
+        <form id="formNuevaTipificacion">
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Descripción de la falta</label>
+            <textarea id="nuevaDescripcion" rows="4" required placeholder="Escriba la descripción completa de la nueva falta..."></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer-custom">
+        <button class="btn btn-secondary" onclick="cerrarModalNuevaTipificacion()">Cancelar</button>
+        <button class="btn btn-primary" style="background:#800020; border:none;" onclick="guardarNuevaTipificacion()">Guardar Tipificación</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="JS/Script.js"></script>
+</body>
+</html>

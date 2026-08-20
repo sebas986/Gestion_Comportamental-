@@ -1,0 +1,298 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* ===== CONTENEDOR PRINCIPAL ===== */
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ===== BOTÓN VOLVER (SOLO FLECHA) ===== */
+    .btn-volver {
+      background: #800020;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(128, 0, 32, 0.3);
+    }
+
+    .btn-volver:hover {
+      background: #4a0013;
+      color: white;
+      transform: translateX(-3px);
+      box-shadow: 0 4px 16px rgba(128, 0, 32, 0.4);
+    }
+
+    .btn-volver i {
+      font-size: 1.8rem;
+    }
+
+    /* ===== TARJETA ===== */
+    .card {
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .card-header {
+      background: #800020;
+      color: white;
+      font-weight: 600;
+      padding: 1rem 1.5rem;
+      border: none;
+    }
+
+    .card-header i {
+      margin-right: 10px;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    /* ===== PESTAÑAS ===== */
+    .nav-tabs {
+      border-bottom: 2px solid #e5e7eb;
+      margin-bottom: 20px;
+    }
+
+    .nav-tabs .nav-link {
+      border: none;
+      color: #6b7280;
+      font-weight: 600;
+      padding: 10px 24px;
+      transition: all 0.3s;
+    }
+
+    .nav-tabs .nav-link:hover {
+      color: #800020;
+      background: transparent;
+    }
+
+    .nav-tabs .nav-link.active {
+      color: #800020;
+      border-bottom: 3px solid #800020;
+      background: transparent;
+    }
+
+    /* ===== TABLA CON SCROLL ===== */
+    .table-wrapper {
+      max-height: 550px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      border-radius: 12px;
+      border: 1px solid #f0f0f0;
+    }
+
+    .table-wrapper::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    .table-wrapper::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    .table-wrapper::-webkit-scrollbar-thumb {
+      background: #800020;
+      border-radius: 10px;
+    }
+
+    .table-wrapper::-webkit-scrollbar-thumb:hover {
+      background: #600018;
+    }
+
+    .table-tipo {
+      margin-bottom: 0;
+      width: 100%;
+    }
+
+    .table-tipo thead {
+      background: #800020;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .table-tipo thead th {
+      padding: 12px;
+      font-weight: 500;
+      background: #800020;
+    }
+
+    .table-tipo tbody tr:hover {
+      background: #fff5f5;
+    }
+
+    .empty-row {
+      text-align: center;
+      color: #9ca3af;
+      padding: 2rem !important;
+    }
+
+    /* ===== BOTONES ===== */
+    .btn-agregar {
+      background: #10b981;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1.2rem;
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: white;
+      transition: all 0.2s;
+    }
+
+    .btn-agregar:hover {
+      background: #059669;
+      transform: translateY(-1px);
+      color: white;
+    }
+
+    .btn-danger-sm {
+      background: #ef4444;
+      border: none;
+      border-radius: 6px;
+      padding: 0.25rem 0.8rem;
+      font-size: 0.75rem;
+      color: white;
+      transition: all 0.2s;
+    }
+
+    .btn-danger-sm:hover {
+      background: #dc2626;
+      color: white;
+    }
+
+    /* ===== MODAL ===== */
+    .modal-custom {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1100;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-custom.show {
+      display: flex;
+    }
+
+    .modal-content-custom {
+      background: white;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 550px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      animation: modalFadeIn 0.2s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .modal-header-custom {
+      background: #800020;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 20px 20px 0 0;
+      font-weight: 600;
+    }
+
+    .modal-body-custom {
+      padding: 1.5rem;
+    }
+
+    .modal-footer-custom {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    textarea {
+      border-radius: 12px;
+      border: 1.5px solid #e5e7eb;
+      padding: 0.75rem;
+      width: 100%;
+      resize: vertical;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: #800020;
+      box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.1);
+    }
+
+    /* ===== CONTADOR ===== */
+    .badge-count {
+      background: rgba(128, 0, 32, 0.15);
+      color: #800020;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      margin-left: 8px;
+      font-weight: 600;
+    }
+
+    .nav-link.active .badge-count {
+      background: rgba(128, 0, 32, 0.2);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      .card-body {
+        padding: 1rem;
+      }
+      .table-wrapper {
+        max-height: 400px;
+      }
+      .nav-tabs .nav-link {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+      }
+      .btn-volver {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+      }
+      .btn-volver i {
+        font-size: 1.4rem;
+      }
+    }

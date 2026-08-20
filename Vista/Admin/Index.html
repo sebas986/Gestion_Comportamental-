@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sidebar Menu</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Css/Style.css">
+  <script src="Js/Script.js"></script>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar d-flex flex-column">
+    <!-- Encabezado con botón centrado -->
+    <div class="sidebar-header">
+      <button class="toggle-btn" onclick="toggleSidebar()">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+
+    <!-- Opciones del menú -->
+    <div class="menu-options">
+      <!-- Opción con submenú -->
+      <div class="menu-item">
+        <a class="opcion has-submenu" href="#" onclick="toggleSubmenu(this)">
+          <i class="fa-solid fa-user"></i>
+          <span class="text">Registrar usuarios</span>
+        </a>
+        <div class="submenu">
+          <a href="../Registro_usuario/Registro_estudiantes/Index.html">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span class="text">Registro Estudiante</span>
+          </a>
+          <a href="../Registro_usuario/Registro_Personal_Educativo/Index.html">
+            <i class="fa-solid fa-briefcase"></i>
+            <span class="text">Registro Personal institucional</span>
+          </a>
+          <a href="../Registro_usuario/Registro_acudiente/index.html">
+            <i class="fa-solid fa-people-group"></i>
+            <span class="text">Registro acudientes y Padre de familia</span>
+          </a>
+        </div>
+      </div>
+
+      <a class="opcion" href="../Registro_Comportamiento/Observación/Index.html">
+        <i class="fa-solid fa-scale-balanced"></i>
+        <span class="text">Registrar sanciones</span>
+      </a>
+
+      <a class="opcion" href="../Registro_Comportamiento/Tipificación/Index.html">
+        <i class="fa-solid fa-file-alt"></i>
+        <span class="text">Registrar tipificaciones</span>
+      </a>
+
+      <a class="opcion" href="../Lista/index.html">
+        <i class="fa-solid fa-users"></i>
+        <span class="text">Listas de grupos</span>
+      </a>
+    </div>
+
+    <!-- Dropdown de usuario -->
+    <div class="user-dropdown">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://via.placeholder.com/32" alt="usuario" width="32" height="32" class="rounded-circle me-2">
+        <strong class="text">mdo</strong>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+        <li><a class="dropdown-item" href="#">Perfil</a></li>
+        <li><a class="dropdown-item" href="#">Configuración</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="../../Index.html">Cerrar sesión</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="content">
+    <h1>Panel de Administración</h1>
+    <p>Bienvenido al sistema de administración. Desde aquí puedes gestionar usuarios, sanciones, tipificaciones y grupos.</p>
+    
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title">Funcionalidades disponibles</h5>
+        <ul class="card-text">
+          <li>Registro y gestión de usuarios del sistema</li>
+          <li>Registro de sanciones y seguimiento</li>
+          <li>Tipificación de comportamientos</li>
+        </ul>
+      </div>
+    </div>
+  </div>  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

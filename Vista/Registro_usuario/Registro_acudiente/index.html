@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro de Padre / Acudiente</title>
+  
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- CSS Personalizado -->
+  <link rel="stylesheet" href="css/Style.css">
+</head>
+<body>
+
+  <!-- ===== PANEL IZQUIERDO ===== -->
+  <div class="left-panel">
+    <img src="../../Img/fondo.jpg" alt="Colegio" class="bg">
+    <img src="../../Img/Logo.png" alt="Logo Gestión Comportamental" class="logo animate__animated animate__fadeInDown">
+  </div>
+
+  <!-- ===== PANEL DERECHO ===== -->
+  <div class="right-panel">
+    <div class="form-container animate__animated animate__fadeInUp">
+      <h4 class="mb-3 animate__animated animate__bounceIn">
+        <i class="bi bi-person-plus"></i> Registro de Padre / Acudiente
+      </h4>
+
+      <form id="formulario" class="needs-validation" novalidate>
+
+        <!-- ===== SELECCIÓN DE ROL ===== -->
+        <div class="mb-3">
+          <label for="rol" class="form-label">
+            <i class="bi bi-person-badge"></i> Seleccione rol *
+          </label>
+          <select class="form-select" id="rol" required>
+            <option value="">Elegir...</option>
+            <option value="acudiente">Acudiente</option>
+            <option value="padre">Padre de familia</option>
+          </select>
+          <div class="invalid-feedback">Por favor seleccione un rol</div>
+        </div>
+
+        <!-- ===== DATOS PERSONALES ===== -->
+        <div class="border-highlight mb-3">
+          <div class="section-title text-primary-custom">
+            <i class="bi bi-person"></i> Datos Personales
+          </div>
+
+          <div class="row g-3">
+            <!-- Nombres -->
+            <div class="col-md-6">
+              <label for="nombres" class="form-label">
+                <i class="bi bi-person"></i> Nombres *
+              </label>
+              <input type="text" class="form-control" id="nombres" required placeholder="Ej: Juan Carlos">
+              <div class="invalid-feedback">Ingrese los nombres</div>
+            </div>
+
+            <!-- Apellidos -->
+            <div class="col-md-6">
+              <label for="apellidos" class="form-label">
+                <i class="bi bi-person"></i> Apellidos *
+              </label>
+              <input type="text" class="form-control" id="apellidos" required placeholder="Ej: Pérez Gómez">
+              <div class="invalid-feedback">Ingrese los apellidos</div>
+            </div>
+
+            <!-- Tipo de documento -->
+            <div class="col-md-6">
+              <label for="tipoDoc" class="form-label">
+                <i class="bi bi-card-text"></i> Tipo de documento *
+              </label>
+              <select class="form-select" id="tipoDoc" required>
+                <option value="">Elegir...</option>
+                <option>Cédula de ciudadanía</option>
+                <option>Tarjeta de identidad</option>
+                <option>Cédula extranjera</option>
+                <option>Pasaporte</option>
+              </select>
+              <div class="invalid-feedback">Seleccione un tipo de documento</div>
+            </div>
+
+            <!-- Número de documento -->
+            <div class="col-md-6">
+              <label for="documento" class="form-label">
+                <i class="bi bi-hash"></i> Número de documento *
+              </label>
+              <input type="text" class="form-control" id="documento" required placeholder="Ej: 123456789">
+              <div class="invalid-feedback">Ingrese el número de documento</div>
+            </div>
+
+            <!-- Correo electrónico -->
+            <div class="col-md-6">
+              <label for="correo" class="form-label">
+                <i class="bi bi-envelope"></i> Correo electrónico *
+              </label>
+              <input type="email" class="form-control" id="correo" required placeholder="Ej: correo@ejemplo.com">
+              <div class="invalid-feedback">Ingrese un correo válido</div>
+            </div>
+
+            <!-- Teléfono móvil -->
+            <div class="col-md-6">
+              <label for="telefono" class="form-label">
+                <i class="bi bi-phone"></i> Teléfono móvil *
+              </label>
+              <input type="text" class="form-control" id="telefono" required placeholder="Ej: 3001234567">
+              <div class="invalid-feedback">Ingrese el número de teléfono</div>
+            </div>
+        <!-- ===== DATOS DEL ESTUDIANTE ===== -->
+        <div class="border-highlight-success mb-3">
+          <div class="section-title text-success-custom">
+            <i class="bi bi-book"></i> Datos del Estudiante
+          </div>
+
+          <div class="row g-3">
+            <!-- Nombre del estudiante -->
+            <div class="col-12">
+              <label for="nombreEstudiante" class="form-label">
+                <i class="bi bi-person"></i> Nombre del estudiante *
+              </label>
+              <input type="text" class="form-control" id="nombreEstudiante" required placeholder="Ej: María Pérez">
+              <div class="help-text">
+                <i class="bi bi-info-circle"></i> El estudiante debe estar registrado previamente en el sistema
+              </div>
+              <div class="invalid-feedback">Ingrese el nombre del estudiante</div>
+            </div>
+
+            <!-- Parentesco -->
+            <div class="col-12">
+              <label for="parentesco" class="form-label">
+                <i class="bi bi-tree"></i> Parentesco con el estudiante *
+              </label>
+              <select class="form-select" id="parentesco" required>
+                <option value="">Elegir...</option>
+                <option>Papá</option>
+                <option>Mamá</option>
+                <option>Abuelo(a)</option>
+                <option>Tío(a)</option>
+                <option>Primo(a)</option>
+                <option>Vecino(a)</option>
+              </select>
+              <div class="invalid-feedback">Seleccione el parentesco</div>
+            </div>
+        <!-- ===== CONTRASEÑA ===== -->
+        <div class="mb-3">
+          <label for="password" class="form-label">
+            <i class="bi bi-lock"></i> Contraseña *
+          </label>
+          <div class="password-input-group">
+            <input type="password" class="form-control" id="password" required minlength="6" placeholder="Mínimo 6 caracteres">
+            <span class="password-toggle" onclick="togglePassword('password')">
+              <i class="bi bi-eye"></i>
+            </span>
+          </div>
+          <div class="help-text">
+            <i class="bi bi-shield-check"></i> La contraseña debe tener al menos 6 caracteres
+          </div>
+          <div class="invalid-feedback">La contraseña debe tener al menos 6 caracteres</div>
+        </div>
+
+        <hr class="my-4">
+
+        <button type="submit" class="w-100 btn btn-primary">
+          <i class="bi bi-save me-2"></i> Guardar información
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/Script.js"></script>
+</body>
+</html>
