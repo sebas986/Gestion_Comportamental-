@@ -1,0 +1,274 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* El fondo ya no está aquí, se usará una etiqueta <img> */
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      position: relative;
+    }
+
+    /* Imagen de fondo como etiqueta HTML */
+    .background-img {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Para que cubra toda la pantalla sin deformarse */
+      z-index: 0;
+    }
+
+    /* Capa oscura para mejorar la legibilidad */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    /* Flecha de regreso */
+    .back-arrow {
+      position: fixed;
+      left: 30px;
+      top: 30px;
+      color: white;
+      font-size: 28px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      z-index: 1000;
+    }
+
+    .back-arrow:hover {
+      background: white;
+      color: #0d6efd;
+      transform: scale(1.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      border-color: white;
+    }
+
+    .container-login {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      padding: 15px;
+    }
+
+    .login-box {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px 40px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      animation: aparecer 1s ease-out;
+    }
+
+    .login-header img {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      display: block;
+      margin: 0 auto 15px auto;
+    }
+
+    /* Custom dropdown con iconos */
+    .custom-select-wrapper {
+      position: relative;
+      width: 100%;
+      user-select: none;
+      margin-bottom: 1.2rem;
+    }
+
+    .custom-select-trigger {
+      background: white;
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+      padding: 12px 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .custom-select-trigger:hover {
+      border-color: #86b7fe;
+    }
+
+    .custom-select-trigger.open {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+
+    .selected-value {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      color: #212529;
+    }
+
+    .selected-value i {
+      font-size: 1.2rem;
+      color: #0d6efd;
+    }
+
+    .arrow {
+      transition: transform 0.2s;
+      color: #6c757d;
+    }
+
+    .custom-select-trigger.open .arrow {
+      transform: rotate(180deg);
+    }
+
+    .custom-options {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #ced4da;
+      margin-top: 5px;
+      max-height: 250px;
+      overflow-y: auto;
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+    }
+
+    .custom-options.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .option-item {
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .option-item i {
+      font-size: 1.2rem;
+      width: 24px;
+      text-align: center;
+      color: #0d6efd;
+    }
+
+    .option-item span {
+      color: #212529;
+    }
+
+    .option-item:hover {
+      background-color: #f8f9fa;
+    }
+
+    .option-item.selected {
+      background-color: #e7f1ff;
+      font-weight: 500;
+    }
+
+    .hidden-select {
+      display: none;
+    }
+
+    .form-control {
+      border-radius: 8px;
+      padding: 12px 15px;
+      border: 1px solid #ced4da;
+    }
+
+    .form-control:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+
+    .btn-custom {
+      border-radius: 8px;
+      font-weight: bold;
+      padding: 12px;
+      font-size: 1.1rem;
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .password-wrapper input {
+      padding-right: 45px;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #6c757d;
+      font-size: 18px;
+      transition: color 0.3s;
+      z-index: 5;
+    }
+
+    .toggle-password:hover {
+      color: #0d6efd;
+    }
+
+    @keyframes aparecer {
+      0% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .login-box {
+        padding: 20px 25px 30px;
+      }
+      .login-header img {
+        max-width: 180px;
+      }
+      .back-arrow {
+        left: 20px;
+        top: 20px;
+        font-size: 24px;
+        width: 45px;
+        height: 45px;
+      }
+    }

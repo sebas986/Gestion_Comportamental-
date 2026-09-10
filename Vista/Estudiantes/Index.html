@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sidebar Menu</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Css Estu/Style.css">
+  <script src="JS/Script.js"></script>
+</head>
+<body>
+  <!-- Sidebar -->
+  <!-- Corrección semántica: Se cambió div por aside -->
+  <aside id="sidebar" class="sidebar d-flex flex-column">
+    
+    <!-- Encabezado con botón centrado -->
+    <!-- Corrección semántica: Se cambió div por header -->
+    <header class="sidebar-header">
+      <!-- Corrección Accesibilidad: Se añadió type="button" y aria-label para el botón de icono -->
+      <button type="button" class="toggle-btn" onclick="toggleSidebar()" aria-label="Abrir o cerrar menú">
+        <i class="bi bi-list"></i>
+      </button>
+    </header>
+
+    <!-- Opciones del menú -->
+    <!-- Corrección semántica: Se cambió div por nav para englobar enlaces de navegación -->
+    <nav class="menu-options">
+      <a class="opcion" href="#">
+        <i class="fa-solid fa-eye"></i>
+        <span class="text">Ver anotación/Hacer descargos</span>
+      </a> <!-- CORRECCIÓN: Se añadió la etiqueta de cierre </a> que faltaba en el código original -->
+    </nav>
+
+    <!-- Dropdown de usuario -->
+    <div class="user-dropdown">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://via.placeholder.com/32" alt="usuario" width="32" height="32" class="rounded-circle me-2">
+        <strong class="text">mdo</strong>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+        <li><a class="dropdown-item" href="#">Perfil</a></li>
+        <li><a class="dropdown-item" href="#">Configuración</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="../../Index.html">Cerrar sesión</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Contenido -->
+  <!-- Corrección semántica y estructural: Se cambió div por main para ser la región central -->
+  <main class="content">
+    <h1>Panel de Administración</h1>
+    <p>Bienvenido al sistema de administración. Desde aquí puedes gestionar anotaciones y descargos.</p>
+    
+    <!-- Corrección semántica: Se cambió div por section para agrupar este bloque de contenido -->
+    <section class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title">Funcionalidades disponibles</h5>
+        <ul class="card-text">
+          <li>Ver anotaciones</li>
+          <li>Registrar y hacer descargos</li>
+        </ul>
+      </div>
+    </section>
+  </main>  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

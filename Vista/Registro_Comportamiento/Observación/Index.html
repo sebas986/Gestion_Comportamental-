@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento y Observación</title>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="JS/script.js"></script>
+</head>
+<body>
+<!-- Corrección: Se reemplazó el <div class="formato"> principal por <main> para establecer un único bloque de contenido principal. -->
+<main class="formato">
+
+    <!-- BOTONES GENERALES (Editar / Guardar / Volver al inicio) -->
+    <div class="acciones-compartidas">
+        <!-- Corrección: Se agregó type="button" a todos los botones para evitar comportamientos de envío no deseados. -->
+        <button type="button" onclick="editarTodo()"><i class="bi bi-pencil"></i> Editar</button>
+        <button type="button" onclick="guardarTodo()"><i class="bi bi-save"></i> Guardar</button>
+        <button type="button" onclick="volverAlInicio()" class="btn-volver"><i class="bi bi-house-door"></i> Volver al inicio</button>
+        <span class="modo-aviso" id="avisoEdicion">(Modo edición activado)</span>
+    </div>
+
+    <!-- FLECHA PARA ALTERNAR VISTAS -->
+    <div class="contenedor-flecha">
+        <!-- Corrección: Se añadió type="button" y aria-label para informar explícitamente a los lectores de pantalla la función del botón icono. -->
+        <button type="button" class="btn-cambio" id="btnToggle" onclick="alternarVista()" title="Cambiar a Observación" aria-label="Alternar entre vistas de Seguimiento y Observación">
+            <i class="bi bi-arrow-left-right"></i>
+        </button>
+    </div>
+
+    <!-- CONTENEDOR DE LAS DOS VISTAS -->
+    <!-- Corrección: Se reemplazó el contenedor genérico de vistas <div> por <section> semánticas. -->
+    <section class="vistas">
+        <!-- VISTA 1: SEGUIMIENTO DEL ESTUDIANTE -->
+        <section class="vista activa" id="vistaSeguimiento">
+            <table class="encabezado">
+                <tr>
+                    <td class="logo"><img src="../../Img/LogoMc.png" alt="Logo Institución"></td>
+                    <td style="text-align:center;">
+                        <h2>INSTITUCIÓN EDUCATIVA</h2>
+                        <h2>MARÍA DE LOS ÁNGELES CANO MÁRQUEZ</h2>
+                        <hr>
+                        <h3>SEGUIMIENTO DEL ESTUDIANTE</h3>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr><th colspan="4">DATOS DE IDENTIFICACIÓN DEL ESTUDIANTE</th></tr>
+                <tr>
+                    <!-- Corrección: Envoltura de textos en <label> asociándolos mediante for a los id de los input correspondientes. Se agregó required a datos indispensables. -->
+                    <td><label for="nombre">Nombre completo</label></td>
+                    <td><input type="text" id="nombre" disabled required></td>
+                    <td><label for="grado">Grado</label> / <label for="grupo">Grupo</label></td>
+                    <td>
+                        <div class="grado-grupo">
+                            <input type="number" id="grado" min="1" max="11" placeholder="Grado" disabled required>
+                            <input type="number" id="grupo" min="1" max="5" placeholder="Grupo" disabled required>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="nacimiento">Fecha de nacimiento</label></td>
+                    <td><input type="text" id="nacimiento" disabled></td>
+                    <td><label for="documento">Documento</label></td>
+                    <td><input type="text" id="documento" disabled required></td>
+                </tr>
+                <tr>
+                    <td><label for="padre">Nombre del padre</label></td>
+                    <td><input type="text" id="padre" disabled></td>
+                    <td><label for="telpadre">Teléfono</label></td>
+                    <!-- Corrección: Se modificó type="text" por type="tel" para la correcta captura de datos telefónicos. -->
+                    <td><input type="tel" id="telpadre" disabled></td>
+                </tr>
+                <tr>
+                    <td><label for="madre">Nombre de la madre</label></td>
+                    <td><input type="text" id="madre" disabled></td>
+                    <td><label for="telmadre">Teléfono</label></td>
+                    <!-- Corrección: Se modificó type="text" por type="tel" para teléfonos. -->
+                    <td><input type="tel" id="telmadre" disabled></td>
+                </tr>
+            </table>
+            <div class="periodos-fila">
+                <!-- Corrección: Se reemplazaron los <div> de cada periodo por la etiqueta semántica <article> al ser secciones informativas independientes. -->
+                <article class="periodo" id="periodo1">
+                    <table>
+                        <tr><th>ASPECTOS ACADÉMICOS Y COMPORTAMENTALES RELEVANTES</th></tr>
+                        <tr><td>
+                            <!-- Corrección: Se convirtió el div.titulo-periodo en un <label> enlazado al textarea para proveer accesibilidad estructural. -->
+                            <label for="obs1" class="titulo-periodo">PRIMER PERIODO</label>
+                            <textarea id="obs1" disabled></textarea>
+                            <div class="firmas">
+                                <!-- Corrección: Se agregó for="firma1p" y for="firma1e" a los labels existentes. -->
+                                <div class="caja-firma"><label for="firma1p">Firma del padre</label><input type="text" id="firma1p" placeholder="Nombre" disabled></div>
+                                <div class="caja-firma"><label for="firma1e">Firma estudiante</label><input type="text" id="firma1e" placeholder="Nombre" disabled></div>
+                            </div>
+                        </td></tr>
+                    </table>
+                </article>
+                <article class="periodo" id="periodo2">
+                    <table>
+                        <tr><th>ASPECTOS ACADÉMICOS Y COMPORTAMENTALES RELEVANTES</th></tr>
+                        <tr><td>
+                            <!-- Corrección: Conversión a <label> asociado. -->
+                            <label for="obs2" class="titulo-periodo">SEGUNDO PERIODO</label>
+                            <textarea id="obs2" disabled></textarea>
+                            <div class="firmas">
+                                <!-- Corrección: Agregado de atributos for. -->
+                                <div class="caja-firma"><label for="firma2p">Firma del padre</label><input type="text" id="firma2p" placeholder="Nombre" disabled></div>
+                                <div class="caja-firma"><label for="firma2e">Firma estudiante</label><input type="text" id="firma2e" placeholder="Nombre" disabled></div>
+                            </div>
+                        </td></tr>
+                    </table>
+                </article>
+                <article class="periodo" id="periodo3">
+                    <table>
+                        <tr><th>ASPECTOS ACADÉMICOS Y COMPORTAMENTALES RELEVANTES</th></tr>
+                        <tr><td>
+                            <!-- Corrección: Conversión a <label> asociado. -->
+                            <label for="obs3" class="titulo-periodo">TERCER PERIODO</label>
+                            <textarea id="obs3" disabled></textarea>
+                            <div class="firmas">
+                                <!-- Corrección: Agregado de atributos for. -->
+                                <div class="caja-firma"><label for="firma3p">Firma del padre</label><input type="text" id="firma3p" placeholder="Nombre" disabled></div>
+                                <div class="caja-firma"><label for="firma3e">Firma estudiante</label><input type="text" id="firma3e" placeholder="Nombre" disabled></div>
+                            </div>
+                        </td></tr>
+                    </table>
+                </article>
+            </div>
+        </section>
+
+        <!-- VISTA 2: FORMATO OBSERVADOR (CON SELECTOR DE SESIONES) -->
+        <section class="vista" id="vistaObservacion">
+            <div class="titulo-principal">Observación</div>
+            
+            <!-- Selector + botón de nueva observación -->
+            <div class="barra-observaciones">
+                <!-- Corrección: Se agregó aria-label al select por carecer de un <label> visual, mejorando accesibilidad. -->
+                <select id="selectorObservaciones" onchange="cambiarObservacion()" aria-label="Seleccionar observación guardada">
+                    <option value="">-- Sin observaciones --</option>
+                </select>
+                <button type="button" onclick="nuevaObservacion()">
+                    <i class="bi bi-plus-circle"></i> Nueva observación
+                </button>
+            </div>
+
+            <!-- Formulario de la observación actual -->
+            <table>
+                <!-- Corrección: Se agregaron <label> dentro de los <th> para asociarlos lógicamente a sus inputs respectivos (Fecha y Situación Tipo). -->
+                <tr><th style="width:120px;"><label for="fechaObs">Fecha</label></th><th style="width:200px;">Tipo</th><th><label for="situacionTipo">Situación Tipo</label></th></tr>
+                <tr>
+                    <!-- Corrección: Se añadió required al campo de fecha ya que una observación requiere fecha. -->
+                    <td style="text-align:center;"><input type="date" id="fechaObs" disabled required></td>
+                    <td>
+                        <div class="tipo-botones">
+                            <!-- Corrección: Se agregó type="button" a los botones de selección para evitar envío accidental del posible futuro formulario general. -->
+                            <button type="button" id="btnReconocimiento" class="activo" onclick="seleccionarTipo('reconocimiento')">Reconocimiento</button>
+                            <button type="button" id="btnObservacion" onclick="seleccionarTipo('observacion')">Observación</button>
+                            <input type="hidden" id="tipoSeleccionado" value="reconocimiento" disabled>
+                        </div>
+                    </td>
+                    <td class="situacion-select">
+                        <!-- Corrección: Se añadió required ya que la tipificación es necesaria para la observación. -->
+                        <select id="situacionTipo" disabled required>
+                            <option value="">Seleccionar...</option>
+                            <option value="I">Tipo I</option>
+                            <option value="II">Tipo II</option>
+                            <option value="III">Tipo III</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="seccion-texto">
+                <!-- Corrección: Se envolvió el texto en un <label> y se asoció con for. Se añadió required al textarea. -->
+                <div class="titulo"><label for="descHecho">Descripción del hecho:</label></div>
+                <textarea id="descHecho" disabled required></textarea>
+            </div>
+            <div class="seccion-texto">
+                <!-- Corrección: Se envolvió el texto en un <label> y se asoció con for. -->
+                <div class="titulo"><label for="descargos">Descargos:</label></div>
+                <textarea id="descargos" disabled></textarea>
+            </div>
+            <div class="seccion-texto">
+                <!-- Corrección: Se envolvió el texto en un <label> y se asoció con for. -->
+                <div class="titulo"><label for="acciones">Acciones pedagógicas y/o compromisos:</label></div>
+                <textarea id="acciones" disabled></textarea>
+            </div>
+            <div class="firmas-contenedor">
+                <div class="cajon-firma">
+                    <!-- Corrección: Conversión del título a <label> asociado con el id de firma. -->
+                    <div class="titulo-firma"><label for="firmaEstudianteObs">Firma del Estudiante</label></div>
+                    <input type="text" id="firmaEstudianteObs" placeholder="Nombre" disabled>
+                </div>
+                <div class="cajon-firma">
+                    <!-- Corrección: Conversión del título a <label> asociado con el id de firma. -->
+                    <div class="titulo-firma"><label for="firmaDocenteObs">Firma del Docente / Testigo</label></div>
+                    <input type="text" id="firmaDocenteObs" placeholder="Nombre" disabled>
+                </div>
+                <div class="cajon-firma">
+                    <!-- Corrección: Conversión del título a <label> asociado con el id de firma. -->
+                    <div class="titulo-firma"><label for="firmaAcudienteObs">Firma del Acudiente</label></div>
+                    <input type="text" id="firmaAcudienteObs" placeholder="Nombre" disabled>
+                </div>
+            </div>
+        </section>
+    </section>
+</main>
+</body>
+</html>

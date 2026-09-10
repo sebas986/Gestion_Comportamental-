@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema Comportamental IEMC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="index/Style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+  <!-- ===== IMAGEN DE FONDO (en HTML) ===== -->
+  <!-- Corrección: Se vació el alt y se agregó aria-hidden="true" porque es una imagen puramente decorativa y no aporta información vital, evitando ruido en lectores de pantalla. -->
+  <img class="background-img" src="Vista/Img/fondo.jpg" alt="" aria-hidden="true">
+
+  <!-- ===== CAPA OSCURA (overlay) ===== -->
+  <!-- Corrección: Se agregó aria-hidden="true" a este div decorativo. -->
+  <div class="overlay" aria-hidden="true"></div>
+
+  <!-- ===== CONTENIDO CENTRADO ===== -->
+  <!-- Corrección: Se reemplazó <div class="center-content"> por <main> para establecer el único bloque de contenido principal del documento. -->
+  <main class="center-content">
+    
+    <!-- Logo -->
+    <div class="logo-container">
+      <img src="Vista/Img/Logo.png" alt="Logotipo del Sistema Comportamental IEMC" class="logo">
+    </div>
+    
+    <!-- Botón Iniciar Sesión -->
+    <a href="Vista/Inicio_sesion/Index.html" class="login-btn">Iniciar Sesión</a>
+    
+  </main>
+
+</body>
+</html>
