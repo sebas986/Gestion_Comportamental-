@@ -57,6 +57,45 @@ h4 {
   color: #5a0404;
 }
 
+/* ===== BOTÓN VOLVER AL LOGIN ===== */
+.form-header {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 12px;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  color: #5a0404;
+  border: 2px solid #5a0404;
+  border-radius: 50px;
+  padding: 6px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-back:hover {
+  background-color: #5a0404;
+  color: #fff;
+  transform: translateX(-3px);
+  text-decoration: none;
+}
+
+.btn-back:focus-visible {
+  outline: 3px solid rgba(90, 4, 4, 0.35);
+  outline-offset: 2px;
+}
+
+.btn-back i {
+  font-size: 1.05rem;
+}
+
 /* ===== BOTÓN PERSONALIZADO ===== */
 button[type="submit"] {
   background-color: #5a0404 !important;
@@ -93,6 +132,13 @@ button[type="submit"]:hover {
   }
 }
 
+@media (max-width: 576px) {
+  .btn-back {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* ===== ESTILOS ADICIONALES ===== */
 .form-label {
   font-weight: 500;
@@ -105,6 +151,9 @@ button[type="submit"]:hover {
   transform: translateY(-50%);
   cursor: pointer;
   color: #6c757d;
+  background: none;
+  border: none;
+  padding: 0;
   z-index: 10;
 }
 
@@ -124,18 +173,16 @@ button[type="submit"]:hover {
 
 .border-highlight {
   border-left: 4px solid #5a0404;
-  padding-left: 15px;
+  padding: 15px;
   background-color: #f8f9fa;
   border-radius: 5px;
-  padding: 15px;
 }
 
 .border-highlight-success {
   border-left: 4px solid #28a745 !important;
-  padding-left: 15px;
+  padding: 15px;
   background-color: #f8f9fa;
   border-radius: 5px;
-  padding: 15px;
 }
 
 .section-title {

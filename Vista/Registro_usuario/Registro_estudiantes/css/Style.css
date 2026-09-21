@@ -1,157 +1,201 @@
-/* ===== ESTILOS GENERALES ===== */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-}
+    /* ===== ESTILOS GENERALES ===== */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+    }
 
-/* ===== PANEL IZQUIERDO ===== */
-.left-panel {
-  flex: 1;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+    /* ===== PANEL IZQUIERDO ===== */
+    .left-panel {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-.left-panel img.bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  filter: blur(5px);
-}
+    .left-panel img.bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      filter: blur(5px);
+    }
 
-.left-panel img.logo {
-  max-width: 220px;
-  z-index: 2;
-  position: relative;
-}
+    .left-panel img.logo {
+      max-width: 220px;
+      z-index: 2;
+      position: relative;
+    }
 
-/* ===== PANEL DERECHO ===== */
-.right-panel {
-  flex: 1;
-  background-color: #fff;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 40px;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.1);
-  overflow-y: auto;
-}
+    /* ===== PANEL DERECHO ===== */
+    .right-panel {
+      flex: 1;
+      background-color: #fff;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+      overflow-y: auto;
+    }
 
-.form-container {
-  width: 100%;
-  max-width: 600px;
-}
+    .form-container {
+      width: 100%;
+      max-width: 600px;
+    }
 
-h4 {
-  font-weight: bold;
-  color: #5a0404;
-}
+    h4 {
+      font-weight: bold;
+      color: #5a0404;
+    }
 
-/* ===== BOTÓN PERSONALIZADO ===== */
-button[type="submit"] {
-  background-color: #5a0404 !important;
-  border: none;
-  transition: transform 0.2s;
-}
+    /* ===== BOTÓN VOLVER AL LOGIN ===== */
+    .form-header {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 12px;
+    }
 
-button[type="submit"]:hover {
-  transform: scale(1.02);
-  background-color: #7a0606 !important;
-}
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: transparent;
+      color: #5a0404;
+      border: 2px solid #5a0404;
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 992px) {
-  body {
-    flex-direction: column;
-    height: auto;
-  }
+    .btn-back:hover {
+      background-color: #5a0404;
+      color: #fff;
+      transform: translateX(-3px);
+      text-decoration: none;
+    }
 
-  .left-panel {
-    width: 100%;
-    height: 250px;
-  }
+    .btn-back:focus-visible {
+      outline: 3px solid rgba(90, 4, 4, 0.35);
+      outline-offset: 2px;
+    }
 
-  .left-panel img.bg {
-    height: 100%;
-  }
+    .btn-back i {
+      font-size: 1.05rem;
+    }
 
-  .right-panel {
-    width: 100%;
-    box-shadow: none;
-    padding: 20px;
-    height: auto;
-  }
-}
+    /* ===== BOTÓN PERSONALIZADO DEL FORMULARIO ===== */
+    button[type="submit"] {
+      background-color: #5a0404 !important;
+      border: none;
+      transition: transform 0.2s;
+    }
 
-/* ===== ESTILOS ADICIONALES ===== */
-.form-label {
-  font-weight: 500;
-}
+    button[type="submit"]:hover {
+      transform: scale(1.02);
+      background-color: #7a0606 !important;
+    }
 
-.password-toggle {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: #6c757d;
-  z-index: 10;
-}
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px) {
+      body {
+        flex-direction: column;
+        height: auto;
+      }
 
-.password-toggle:hover {
-  color: #5a0404;
-}
+      .left-panel {
+        width: 100%;
+        height: 250px;
+      }
 
-.password-input-group {
-  position: relative;
-}
+      .left-panel img.bg {
+        height: 100%;
+      }
 
-.help-text {
-  font-size: 0.85rem;
-  color: #6c757d;
-  margin-top: 4px;
-}
+      .right-panel {
+        width: 100%;
+        box-shadow: none;
+        padding: 20px;
+        height: auto;
+      }
+    }
 
-.border-highlight {
-  border-left: 4px solid #5a0404;
-  padding-left: 15px;
-  background-color: #f8f9fa;
-  border-radius: 5px;
-  padding: 15px;
-}
+    @media (max-width: 576px) {
+      .btn-back {
+        width: 100%;
+        justify-content: center;
+      }
+    }
 
-.border-highlight-success {
-  border-left: 4px solid #28a745 !important;
-  padding-left: 15px;
-  background-color: #f8f9fa;
-  border-radius: 5px;
-  padding: 15px;
-}
+    /* ===== ESTILOS ADICIONALES ===== */
+    .form-label {
+      font-weight: 500;
+    }
 
-.section-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
+    .password-toggle {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #6c757d;
+      z-index: 10;
+    }
 
-.section-title i {
-  margin-right: 8px;
-}
+    .password-toggle:hover {
+      color: #5a0404;
+    }
 
-.text-primary-custom {
-  color: #5a0404;
-}
+    .password-input-group {
+      position: relative;
+    }
 
-.text-success-custom {
-  color: #28a745;
-}
+    .help-text {
+      font-size: 0.85rem;
+      color: #6c757d;
+      margin-top: 4px;
+    }
+
+    .border-highlight {
+      border-left: 4px solid #5a0404;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-radius: 5px;
+    }
+
+    .border-highlight-success {
+      border-left: 4px solid #28a745 !important;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-radius: 5px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .section-title i {
+      margin-right: 8px;
+    }
+
+    .text-primary-custom {
+      color: #5a0404;
+    }
+
+    .text-success-custom {
+      color: #28a745;
+    }
