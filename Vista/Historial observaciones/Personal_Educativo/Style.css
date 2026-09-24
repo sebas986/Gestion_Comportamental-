@@ -1,0 +1,230 @@
+/* ============================================
+   RESET Y ESTILOS BASE
+   ============================================ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: #f2f2f2;
+    font-family: Arial, sans-serif;
+    color: #000;
+}
+
+/* ============================================
+   BARRA DE NAVEGACIÓN
+   ============================================ */
+.barra-nav {
+    background: #002244;
+    color: white;
+    padding: 12px 20px;
+    border-bottom: 3px solid #0066cc;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.barra-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    background: #0066cc;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.barra-nav a:hover {
+    background: #004c99;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL DEL FORMULARIO
+   ============================================ */
+.formato {
+    max-width: 1200px;
+    margin: auto;
+    background: white;
+    border: 2px solid black;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   ENCABEZADO (TABLA SUPERIOR)
+   ============================================ */
+.encabezado {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.encabezado td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+/* ============================================
+   LOGO / PLACEHOLDER DE IMAGEN
+   ============================================ */
+.logo-placeholder {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    overflow: hidden;
+}
+
+/* Ajuste para que la imagen no se deforme ni se salga del recuadro */
+.logo-placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* ============================================
+   TÍTULOS DE SECCIÓN
+   ============================================ */
+.titulo-seccion {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 25px 0 15px 0;
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+    color: #002244;
+}
+
+/* ============================================
+   TABLAS GENERALES
+   ============================================ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 8px 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+th {
+    background: #e5e5e5;
+}
+
+/* ============================================
+   FORMULARIOS (INPUTS, SELECTS, TEXTAREAS)
+   ============================================ */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Estado deshabilitado (campos de solo lectura con apariencia formal) */
+input:disabled,
+select:disabled,
+textarea:disabled {
+    background: #f8f9fa;
+    color: #222;
+    border: 1px solid black;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* --- Variantes de botón --- */
+.btn-principal {
+    background: #0066cc;
+}
+
+.btn-principal:hover {
+    background: #004c99;
+}
+
+.btn-guardar {
+    background: #198754;
+}
+
+.btn-guardar:hover {
+    background: #146c43;
+}
+
+.btn-cancelar {
+    background: #dc3545;
+}
+
+.btn-cancelar:hover {
+    background: #bb2d3b;
+}
+
+.btn-editar {
+    background: #ffc107;
+    color: black;
+}
+
+.btn-editar:hover {
+    background: #e0a800;
+}
+
+/* ============================================
+   UTILIDADES
+   ============================================ */
+.hidden {
+    display: none !important;
+}
+
+/* ============================================
+   MENSAJES Y ALERTAS
+   ============================================ */
+.alerta-info {
+    background: #e2e3e5;
+    border: 1px solid black;
+    padding: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin: 15px 0;
+}
+
+/* ============================================
+   CAJAS DE FORMULARIO (CONTENEDORES RESALTADOS)
+   ============================================ */
+.caja-formulario {
+    border: 2px dashed #0066cc;
+    padding: 20px;
+    background: #f0f8ff;
+    margin-top: 20px;
+}

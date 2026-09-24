@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial - Mis Anotaciones</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="barra-nav">
+        <span><i class="bi bi-person-fill"></i> SESIÓN: ESTUDIANTE</span>
+        <a href=""><i class="bi bi-person-badge-fill"></i>Inicio</a>
+    </div>
+
+    <main class="formato">
+        <!-- ENCABEZADO INSTITUCIONAL -->
+        <table class="encabezado">
+            <tr>
+                <td style="width: 100px; text-align: center;">
+                    <!-- LOGO CON ETIQUETA IMG -->
+                    <div class="logo-placeholder">
+                        <img src="../../Img/LogoMc.png" alt="Logo Institucional">
+                    </div>
+                </td>
+                <td style="text-align: center;">
+                    <h2 style="margin:2px 0; font-size: 18px;">INSTITUCIÓN EDUCATIVA MARÍA DE LOS ÁNGELES CANO MÁRQUEZ</h2>
+                    <h3 style="margin:5px 0; font-size: 16px; color: #0066cc;">CONSULTA DE ANOTACIONES Y DESCARGOS</h3>
+                </td>
+            </tr>
+        </table>
+
+        <!-- DATOS ESTUDIANTE LOGUEADO -->
+        <table>
+            <tr><th colspan="4">MIS DATOS PERSONALES</th></tr>
+            <tr>
+                <td style="font-weight:bold;">Estudiante:</td>
+                <td><input type="text" id="estNombre" disabled></td>
+                <td style="font-weight:bold;">Grado / Grupo:</td>
+                <td><input type="text" id="estGrado" disabled></td>
+            </tr>
+        </table>
+
+        <!-- SELECTOR DE FECHA -->
+        <div style="background: #f8f9fa; border: 1px solid black; padding: 15px; margin-bottom: 15px;">
+            <label style="font-weight:bold;"><i class="bi bi-calendar-event"></i> Seleccione una fecha para consultar la anotación:</label>
+            <select id="selectFechaEstudiante" onchange="cargarDetalleAnotacionEstudiante()">
+                <!-- Opciones cargadas dinámicamente -->
+            </select>
+        </div>
+
+        <!-- DETALLE DE LA ANOTACIÓN SELECCIONADA -->
+        <div id="contenedorDetalleAnotacion" class="tarjeta hidden">
+            <h3 style="margin-top:0; color:#002244;" id="viewMotivo">Motivo de la observación</h3>
+
+            <table>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Tipo</th>
+                    <th>Situación</th>
+                    <th>Registrado por</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="viewFecha" disabled></td>
+                    <td><input type="text" id="viewHora" disabled></td>
+                    <td><input type="text" id="viewTipo" disabled></td>
+                    <td><input type="text" id="viewSituacion" disabled></td>
+                    <td><input type="text" id="viewAutor" disabled></td>
+                </tr>
+            </table>
+
+            <div style="margin-bottom: 15px;">
+                <label style="font-weight:bold;">Descripción del hecho:</label>
+                <textarea id="viewDescripcion" disabled></textarea>
+            </div>
+
+            <!-- SECCIÓN DE DESCARGOS DEL ESTUDIANTE -->
+            <div style="border-top: 1px solid #ccc; padding-top: 15px; margin-top: 15px;">
+                <h4 style="margin: 0 0 8px 0; color:#0066cc;"><i class="bi bi-chat-right-text"></i> Mis Descargos</h4>
+                <p style="font-size: 12px; color: #555;">Ingrese sus descargos o aclaraciones correspondientes a esta situación.</p>
+
+                <textarea id="inputDescargoEstudiante" placeholder="Escriba aquí sus descargos..."></textarea>
+                <div style="margin-top: 8px; text-align: right;">
+                    <button type="button" class="btn btn-guardar" onclick="guardarDescargoEstudiante()">
+                        <i class="bi bi-send-check"></i> Enviar Descargos
+                    </button>
+                </div>
+            </div>
+
+            <!-- CONFIRMACIÓN Y FIRMA -->
+            <div style="border-top: 1px solid #ccc; padding-top: 15px; margin-top: 15px;">
+                <h4 style="margin: 0 0 8px 0;"><i class="bi bi-patch-check"></i> Firma y Confirmación de Lectura</h4>
+                <input type="text" id="inputFirmaEstudiante" placeholder="Escriba su nombre completo como firma de lectura">
+                <div style="margin-top: 8px; text-align: right;">
+                    <button type="button" class="btn" onclick="confirmarFirmaEstudiante()">
+                        <i class="bi bi-check-lg"></i> Confirmar Firma
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="Script.js"></script>
+</body>
+</html>

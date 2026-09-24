@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo Administrativo - Historial de Observaciones</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <div class="barra-nav">
+        <span><i class="bi bi-person-badge-fill"></i> SESIÓN: PERSONAL ADMINISTRATIVO / DOCENTE</span>
+    </div>
+
+    <main class="formato">
+        <!-- ENCABEZADO INSTITUCIONAL -->
+        <table class="encabezado">
+            <tr>
+                <td style="width: 120px; text-align: center;">
+                    <!-- LOGO CON ETIQUETA IMG -->
+                    <div class="logo-placeholder">
+                        <img src="../../Img/LogoMc.png" alt="Logo Institucional">
+                    </div>
+                </td>
+                <td style="text-align: center;">
+                    <h2 style="margin:2px 0; font-size: 18px;">INSTITUCIÓN EDUCATIVA MARÍA DE LOS ÁNGELES CANO MÁRQUEZ</h2>
+                    <h3 style="margin:5px 0; font-size: 16px; color: #0066cc;">MÓDULO ADMINISTRATIVO DE SEGUIMIENTO Y OBSERVACIONES</h3>
+                </td>
+            </tr>
+        </table>
+
+        <!-- SELECCIÓN DE ESTUDIANTE -->
+        <div style="background: #e9ecef; padding: 15px; border: 1px solid black; margin-bottom: 20px;">
+            <label for="selectEstudianteAdmin" style="font-weight: bold;"><i class="bi bi-search"></i> Seleccionar Estudiante para consultar:</label>
+            <select id="selectEstudianteAdmin" style="margin-top: 5px;" onchange="cargarEstudianteAdmin()">
+                <!-- Opciones cargadas dinámicamente -->
+            </select>
+        </div>
+
+        <!-- DATOS DEL ESTUDIANTE -->
+        <section>
+            <table>
+                <tr><th colspan="4">DATOS DE IDENTIFICACIÓN DEL ESTUDIANTE</th></tr>
+                <tr>
+                    <td style="width:15%; font-weight:bold;">Nombre:</td>
+                    <td><input type="text" id="adminNombreEst" disabled></td>
+                    <td style="width:15%; font-weight:bold;">Grado/Grupo:</td>
+                    <td><input type="text" id="adminGradoEst" disabled></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold;">Documento:</td>
+                    <td><input type="text" id="adminDocEst" disabled></td>
+                    <td style="font-weight:bold;">Acudiente:</td>
+                    <td><input type="text" id="adminAcudienteEst" disabled></td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- SECCIÓN 1: HISTORIAL DE OBSERVACIONES -->
+        <section>
+            <div class="titulo-seccion"><i class="bi bi-journal-text"></i> Historial de Observaciones</div>
+            <p style="font-size: 13px; color: #555;">Lista de observaciones registradas para el estudiante. Seleccione "Editar observación" para abrir el formulario completo.</p>
+            
+            <table id="tablaHistorialResumen">
+                <thead>
+                    <tr>
+                        <th>Motivo</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Tipo</th>
+                        <th>Situación</th>
+                        <th>Registrado por</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyHistorial">
+                    <!-- Se llena dinámicamente con la lista en resumen -->
+                </tbody>
+            </table>
+            <div id="mensajeSinHistorial" class="alerta-info hidden">No hay observaciones registradas para este estudiante.</div>
+        </section>
+
+        <!-- FORMULARIO COMPLETO DE EDICIÓN DE OBSERVACIÓN (OCULTO HASTA SELECCIONAR) -->
+        <section id="seccionEdicionObservacion" class="caja-formulario hidden">
+            <div class="titulo-seccion" style="margin-top:0; color:#0066cc;">
+                <i class="bi bi-pencil-square"></i> Edición de Observación Completa
+            </div>
+
+            <form id="formObservacionCompleta" onsubmit="event.preventDefault(); guardarCambiosObservacion();">
+                <input type="hidden" id="editAnotacionId">
+
+                <table>
+                    <tr>
+                        <th style="width: 20%;">Fecha</th>
+                        <th style="width: 20%;">Tipo de Registro</th>
+                        <th style="width: 20%;">Situación Tipo</th>
+                        <th style="width: 40%;">Registrado por / Docente</th>
+                    </tr>
+                    <tr>
+                        <td><input type="date" id="editFecha" required></td>
+                        <td>
+                            <select id="editTipo" required>
+                                <option value="Observación">Observación</option>
+                                <option value="Reconocimiento">Reconocimiento</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="editSituacionTipo" required>
+                                <option value="N/A">N/A</option>
+                                <option value="Tipo I">Tipo I</option>
+                                <option value="Tipo II">Tipo II</option>
+                                <option value="Tipo III">Tipo III</option>
+                            </select>
+                        </td>
+                        <td><input type="text" id="editAutor" required></td>
+                    </tr>
+                </table>
+
+                <div style="margin-bottom: 12px;">
+                    <label style="font-weight:bold; display:block; margin-bottom:4px;">Motivo Principal:</label>
+                    <input type="text" id="editMotivo" required>
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                    <label style="font-weight:bold; display:block; margin-bottom:4px;">Descripción del hecho:</label>
+                    <textarea id="editDescripcion" required></textarea>
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                    <label style="font-weight:bold; display:block; margin-bottom:4px;">Descargos del estudiante:</label>
+                    <textarea id="editDescargo" placeholder="Descargos del estudiante..."></textarea>
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                    <label style="font-weight:bold; display:block; margin-bottom:4px;">Acciones pedagógicas y/o compromisos:</label>
+                    <textarea id="editAccionesPedagogicas" placeholder="Escriba las acciones o acuerdos alcanzados..."></textarea>
+                </div>
+
+                <table>
+                    <tr><th colspan="3">FIRMAS Y CONFIRMACIONES REGISTRADAS</th></tr>
+                    <tr>
+                        <td style="width: 33%;">
+                            <label style="font-weight:bold;">Firma Estudiante:</label>
+                            <input type="text" id="editFirmaEstudiante" placeholder="Nombre / Firma Estudiante">
+                        </td>
+                        <td style="width: 33%;">
+                            <label style="font-weight:bold;">Firma Docente / Testigo:</label>
+                            <input type="text" id="editFirmaDocente" placeholder="Nombre Docente / Testigo">
+                        </td>
+                        <td style="width: 34%;">
+                            <label style="font-weight:bold;">Firma Acudiente:</label>
+                            <input type="text" id="editFirmaAcudiente" placeholder="Nombre Acudiente">
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- BOTONES DE LA SECCIÓN DE OBSERVACIÓN -->
+                <div style="margin-top: 15px; display: flex; gap: 10px; justify-content: flex-end;">
+                    <button type="button" class="btn btn-cancelar" onclick="cerrarFormularioEdicion()">
+                        <i class="bi bi-x-circle"></i> Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-guardar">
+                        <i class="bi bi-save"></i> Guardar Cambios
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- SECCIÓN 2: SEGUIMIENTO DEL ESTUDIANTE -->
+        <section style="margin-top: 30px;">
+            <div class="titulo-seccion"><i class="bi bi-clipboard-data"></i> Seguimiento del Estudiante</div>
+            <p style="font-size: 13px; color: #555;">Bitácora continua de orientación, citas a acudientes y observaciones evolutivas.</p>
+
+            <div style="margin-bottom: 10px; display: flex; gap: 10px;">
+                <button type="button" class="btn btn-editar" id="btnEditarSeguimiento" onclick="habilitarEdicionSeguimiento()">
+                    <i class="bi bi-pencil"></i> Editar
+                </button>
+                <button type="button" class="btn btn-guardar" id="btnGuardarSeguimiento" onclick="guardarSeguimiento()" disabled>
+                    <i class="bi bi-save"></i> Guardar
+                </button>
+                <button type="button" class="btn btn-principal" onclick="volverAlInicioSeguimiento()">
+                    <i class="bi bi-house-door"></i> Volver al inicio
+                </button>
+            </div>
+
+            <textarea id="textSeguimientoEstudiante" disabled placeholder="No se han registrado notas de seguimiento para este estudiante."></textarea>
+        </section>
+    </main>
+    <Script src="Script.js"></Script>
+</body>
+</html>

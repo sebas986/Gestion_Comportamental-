@@ -1,0 +1,158 @@
+/* ============================================
+   RESET Y ESTILOS BASE
+   ============================================ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: #f2f2f2;
+    font-family: Arial, sans-serif;
+    color: #000;
+}
+
+/* ============================================
+   BARRA DE NAVEGACIÓN
+   ============================================ */
+.barra-nav {
+    background: #002244;
+    color: white;
+    padding: 12px 20px;
+    border-bottom: 3px solid #0066cc;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.barra-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    background: #0066cc;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL DEL FORMULARIO
+   ============================================ */
+.formato {
+    max-width: 1200px;
+    margin: auto;
+    background: white;
+    border: 2px solid black;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   ENCABEZADO (TABLA SUPERIOR)
+   ============================================ */
+.encabezado {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.encabezado td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+/* ============================================
+   LOGO / PLACEHOLDER DE IMAGEN
+   ============================================ */
+.logo-placeholder {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    overflow: hidden;
+}
+
+/* Ajuste para que la imagen no se deforme ni se salga del recuadro */
+.logo-placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* ============================================
+   TABLAS GENERALES
+   ============================================ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 8px 10px;
+    font-size: 14px;
+}
+
+th {
+    background: #e5e5e5;
+}
+
+/* ============================================
+   FORMULARIOS (INPUTS, SELECTS, TEXTAREAS)
+   ============================================ */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    background: #0066cc;
+}
+
+.btn-guardar {
+    background: #198754;
+}
+
+/* ============================================
+   UTILIDADES
+   ============================================ */
+.hidden {
+    display: none !important;
+}
+
+/* ============================================
+   TARJETAS / CONTENEDORES INTERNOS
+   ============================================ */
+.tarjeta {
+    border: 1px solid black;
+    padding: 15px;
+    margin-top: 15px;
+    background: #ffffff;
+}
